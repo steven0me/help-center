@@ -16,54 +16,45 @@
     <section class="faq">
       <h2>FAQ & Tutoriels</h2>
 
-      <div class="card" onclick="toggleExplanation('box')">
-        <h3><i class="icon">➕</i> Comment ajouter une nouvelle Box ?</h3>
-        <p>Appuyez pour voir les instructions.</p>
-        <div class="explanation" id="box">
+      <button id="toggleAllBtn">Déplier tout</button>
+
+      <div class="card" onclick="toggleExplanation(this)">
+        <h3><i class="icon">❓</i> Comment ajouter une nouvelle Box ?</h3>
+        <p>Suivez ce tutoriel détaillé étape par étape.</p>
+        <div class="explanation">
           <ol>
-            <li>Aller à la page d'accueil de l'application.</li>
-            <li>Cliquer sur la carte ayant une <strong>icône +</strong>.</li>
-            <li>Scanner le code QR présent sur la Box.</li>
-            <li>Les informations de la Box apparaîtront automatiquement.</li>
-            <li>Compléter les zones de texte si besoin.</li>
-            <li>Cliquer sur <strong>"Ajouter l'appareil"</strong> pour finaliser l'enregistrement.</li>
+            <li>Accédez à l’accueil de l’application BeetleBox.</li>
+            <li>Cliquez sur la carte contenant une icône « + ».</li>
+            <li>Scannez le QR Code présent sur la box.</li>
+            <li>Les informations s'affichent automatiquement.</li>
+            <li>Complétez ou ajustez les champs de texte.</li>
+            <li>Cliquez sur <strong>« Ajouter l’appareil »</strong>.</li>
           </ol>
         </div>
       </div>
 
-      <div class="card" onclick="toggleExplanation('mqtt')">
+      <div class="card" onclick="toggleExplanation(this)">
         <h3><i class="icon">📶</i> Connexion MQTT (Adafruit)</h3>
-        <p>Appuyez pour voir les instructions.</p>
-        <div class="explanation" id="mqtt">
-          <p>
-            Pour connecter votre ESP32 à Adafruit IO :
-            <ol>
-              <li>Créer un compte sur <a href="https://io.adafruit.com/" target="_blank">io.adafruit.com</a>.</li>
-              <li>Créer des feeds nommés : <code>temperature</code>, <code>humidity</code>, <code>luminosity</code>, etc.</li>
-              <li>Configurer l’ESP32 avec votre <strong>username</strong> et <strong>AIO Key</strong>.</li>
-              <li>Utiliser les bibliothèques MQTT comme PubSubClient dans Arduino IDE.</li>
-            </ol>
-          </p>
+        <p>Configurez votre ESP32 avec le broker MQTT.</p>
+        <div class="explanation">
+          <p>Consultez le guide officiel de Adafruit :</p>
+          <a href="https://io.adafruit.com/" target="_blank">https://io.adafruit.com/</a>
         </div>
       </div>
 
-      <div class="card" onclick="toggleExplanation('errors')">
+      <div class="card" onclick="toggleExplanation(this)">
         <h3><i class="icon">⚠️</i> Problèmes de connexion</h3>
-        <p>Appuyez pour voir les solutions fréquentes.</p>
-        <div class="explanation" id="errors">
-          <ul>
-            <li>Vérifiez que votre Box est bien connectée au Wi-Fi.</li>
-            <li>Assurez-vous que l’AIO Key d’Adafruit est correcte.</li>
-            <li>Vérifiez si le feed existe bien dans votre compte Adafruit.</li>
-            <li>Consultez la page de support officielle : <a href="https://support.adafruit.com/" target="_blank">support.adafruit.com</a>.</li>
-          </ul>
+        <p>Dépannez les erreurs fréquentes avec l’ESP32.</p>
+        <div class="explanation">
+          <p>Vérifiez vos identifiants MQTT, les connexions Wi-Fi et consultez :</p>
+          <a href="https://support.adafruit.com/" target="_blank">https://support.adafruit.com/</a>
         </div>
       </div>
     </section>
 
     <section class="contact">
       <h2>Support</h2>
-      <div class="card email" onclick="window.location.href='mailto:support@beetlebox.io'">
+      <div class="card email" onclick="window.location='mailto:support@beetlebox.io'">
         <h3><i class="icon">📧</i> Contacter le support</h3>
         <p>Envoyez un message à notre équipe</p>
       </div>
@@ -75,10 +66,25 @@
   </footer>
 
   <script>
-    function toggleExplanation(id) {
-      const element = document.getElementById(id);
-      element.classList.toggle("visible");
+    function toggleExplanation(card) {
+      const exp = card.querySelector(".explanation");
+      exp.classList.toggle("visible");
+      card.classList.toggle("active");
     }
+
+    const toggleAllBtn = document.getElementById("toggleAllBtn");
+    let allOpen = false;
+    toggleAllBtn.onclick = () => {
+      allOpen = !allOpen;
+      document.querySelectorAll(".card").forEach(card => {
+        const exp = card.querySelector(".explanation");
+        if (exp) {
+          exp.classList.toggle("visible", allOpen);
+          card.classList.toggle("active", allOpen);
+        }
+      });
+      toggleAllBtn.textContent = allOpen ? "Replier tout" : "Déplier tout";
+    };
   </script>
 </body>
 </html>

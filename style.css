@@ -1,23 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6fa;
+  color: #2c2c2c;
+  padding: 24px;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  color: #2E0C4B;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+header p {
+  color: #666;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+h2 {
+  color: #2E0C4B;
+  margin-bottom: 18px;
+  font-size: 22px;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+}
+
+button#toggleAllBtn {
+  background-color: #2E0C4B;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button#toggleAllBtn:hover {
+  background-color: #3a1662;
+}
+
+.card {
+  background-color: white;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  background-color: #f8f9ff;
+  transform: translateY(-2px);
+}
+
+.card.active {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  background-color: #f2f1fb;
+}
+
+.card h3 {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #2e0c4b;
+}
+
+.card .icon {
+  margin-right: 12px;
+  font-size: 22px;
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+}
+
+.card.active .icon {
+  transform: rotate(90deg);
+}
+
+.card.email {
+  background: linear-gradient(135deg, #e3f0ff, #f5faff);
+  border-color: #a3c9f8;
+}
+
 .explanation {
   display: none;
+  padding-top: 12px;
+  border-top: 1px solid #e0e0e0;
   margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px solid #ddd;
-  color: #444;
   font-size: 15px;
-  line-height: 1.6;
-  animation: fadeIn 0.3s ease-in-out;
+  color: #444;
+  animation: fadeIn 0.3s ease;
 }
 
 .explanation.visible {
   display: block;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+.explanation ol,
+.explanation ul {
+  margin-top: 8px;
+  padding-left: 20px;
 }
 
-ol, ul {
-  padding-left: 20px;
+.explanation a {
+  color: #2e0c4b;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.explanation a:hover {
+  color: #57187a;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #aaa;
+  padding-bottom: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
