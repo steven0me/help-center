@@ -1,77 +1,23 @@
-/* style.css */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.explanation {
+  display: none;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  color: #444;
+  font-size: 15px;
+  line-height: 1.6;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f8;
-  color: #333;
-  padding: 20px;
+.explanation.visible {
+  display: block;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 40px;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-header h1 {
-  color: #2e0c4b;
-  font-size: 32px;
-}
-
-header p {
-  color: #666;
-  margin-top: 8px;
-}
-
-h2 {
-  color: #2e0c4b;
-  margin-bottom: 16px;
-}
-
-main {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.card {
-  background-color: white;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin-bottom: 16px;
-  cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-.card:hover {
-  background-color: #f1f1f1;
-  transform: scale(1.01);
-}
-
-.card h3 {
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-
-.card .icon {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.card.email {
-  background-color: #eef6ff;
-  border-color: #a3c9f8;
-}
-
-footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 14px;
-  color: #888;
+ol, ul {
+  padding-left: 20px;
 }
