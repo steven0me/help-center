@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Centre d'aide - BeetleBox</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Centre d'aide BeetleBox</h1>
+    <p>FAQ, Tutoriels & Assistance</p>
+  </header>
+
+  <main>
+    <section class="faq">
+      <h2>FAQ & Tutoriels</h2>
+
+      <div class="card" onclick="openLink('https://learn.adafruit.com/')">
+        <h3><i class="icon">❓</i> Comment ajouter un capteur ?</h3>
+        <p>Suivez ce tutoriel détaillé étape par étape.</p>
+      </div>
+
+      <div class="card" onclick="openLink('https://io.adafruit.com/')">
+        <h3><i class="icon">📶</i> Connexion MQTT (Adafruit)</h3>
+        <p>Guide de configuration MQTT avec votre ESP32.</p>
+      </div>
+
+      <div class="card" onclick="openLink('https://support.adafruit.com/')">
+        <h3><i class="icon">⚠️</i> Problèmes de connexion</h3>
+        <p>Dépannez les erreurs les plus fréquentes.</p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Support</h2>
+      <div class="card email" onclick="openLink('mailto:support@beetlebox.io')">
+        <h3><i class="icon">📧</i> Contacter le support</h3>
+        <p>Envoyez un message à notre équipe</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 BeetleBox. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    function openLink(url) {
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
